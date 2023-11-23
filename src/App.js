@@ -1,6 +1,6 @@
 import React, { createContext, useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./styles.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Updated import
 import Products from "./components/Products";
 import Cart from "./components/Cart";
 import { data } from "./data";
@@ -9,7 +9,7 @@ export const BooksContext = createContext();
 
 function App() {
   const [state, setState] = useState({
-    booklist: data,
+    booklist: data.products,
     cart: []
   });
 
@@ -26,11 +26,12 @@ function App() {
     });
   };
 
-  const removeFromCart = (id) =>
+  const removeFromCart = (id) => {
     setState({
       ...state,
       cart: state.cart.filter((cartItem) => cartItem.id !== id)
     });
+  };
 
   const increase = (id) => {
     setState({
@@ -60,10 +61,18 @@ function App() {
     >
       <Router>
         <div className="App">
-          <h2 ><span style={{textAlign:"center"}}>Shopping Cart App</span></h2>
+          <h2>
+            <span>Shopping Cart App</span>
+          </h2>
           <Routes>
-            <Route path="/" element={<Products />} />
-            <Route path="/cart" element={<Cart />} />
+            <Route
+              path="/"
+              element={<Products addToCart={addToCart} />} // Pass addToCart function to Products component
+            />
+            <Route
+              path="/cart"
+              element={<Cart removeFromCart={removeFromCart} increase={increase} decrease={decrease} />} // Pass necessary functions to Cart component
+            />
           </Routes>
         </div>
       </Router>
