@@ -1,0 +1,44 @@
+
+body {
+    
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(to right, #3494e6, #ec6ead); /* Add your desired gradient colors */
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add box shadow for a subtle shadow effect */
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Increase shadow on hover for a lift effect */
+  }
+  
+  .card-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  h2 span {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
